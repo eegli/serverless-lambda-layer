@@ -1,0 +1,28 @@
+service: test-layer-lambda
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: ${opt:stage, 'stg'}
+  region: eu-central-1
+  memorySize: 128
+  versionFunctions: false
+  layers:
+    - !Ref DataLambdaLayer
+
+functions:
+  hello:
+    handler: index.handler
+    url: true
+
+layers:
+  data:
+    path: './layer'
+    description: Layer that holds data
+
+package:
+  individually: true
+  patterns:
+    - '!event.json'

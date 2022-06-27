@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "deploy": "serverless deploy -s prod",
+    "invoke": "serverless invoke local -f hello -p event.json"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.101",
+    "data-layer": "link:./layer/nodejs/node_modules/data-layer"
+  }
+}

@@ -1,0 +1,9 @@
+# package directories
+node_modules
+
+# Force include layer content
+!layer/**
+
+
+# Serverless directories
+.serverless
